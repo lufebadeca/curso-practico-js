@@ -61,12 +61,53 @@ function computeP(){
     const inputSquare = document.getElementById("square-input");
     const inputValue = inputSquare.value;
     var perim = perimetroCuadrado(inputValue);
-    alert(perim);
+    alert(perim + "cm");
 }
 
 function computeA(){
     const inputSquare = document.getElementById("square-input");
     const inputValue = inputSquare.value;
     var area = areaCuadrado(inputValue);
-    alert(area);
+    alert(area + "cm2");
+}
+function computeCP(){
+    const inputRad = document.getElementById("circle-input");
+    const radValue = inputRad.value;
+    var perim = perimetroCirculo(radValue*2);
+    alert(perim + "cm");
+}
+
+function computeCA(){
+    const inputRad = document.getElementById("circle-input");
+    const radValue = inputRad.value;
+    var area = areaCirculo(radValue);
+    alert(area + "cm2");
+}
+function computeTP(){
+    const inputTrian1 = document.getElementById("trian1-input");
+    const lado1 = Number(inputTrian1.value);
+    const inputTrian2 = document.getElementById("trian2-input");
+    const lado2 = Number(inputTrian2.value);
+    const inputTrian3 = document.getElementById("trianB-input");
+    const base = Number(inputTrian3.value);
+    var perim = perimetroTriangulo(lado1, lado2, base);
+    alert(perim + "cm");
+}
+
+function computeTA(){
+    const inputTrian1 = document.getElementById("trian1-input");
+    const lado1 = inputTrian1.value;
+    const inputTrian2 = document.getElementById("trian2-input");
+    const lado2 = inputTrian2.value;
+    const inputTrian3 = document.getElementById("trianB-input");
+    const base = inputTrian3.value;
+    if (lado1 == lado2){
+        const hipo = Math.sqrt(Math.pow(lado1,2)-(Math.pow(base,2)/4));
+        var area = areaTriangulo(base, hipo);
+        alert("Altura: "+ hipo + ". Area: " + area + "cm2");
+    }
+    else{
+        alert("Error, unable to compute height since the length of side 1 and 2 are different")
+    }
+
 }
