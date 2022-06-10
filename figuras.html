@@ -5,41 +5,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Geometric figures</title>
+    <link rel="stylesheet" href="figures.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
     <h1>Geometric figures</h1>
     <p>This is the first workshop of Javascript Practic course</p>
-    <section>
-        <h2>Compute the area and perimeter of a square</h2>
-        <form>
-            <label for="square-input">Type the lenght of each side of yoir square</label>
-            <input type="number" id="square-input" />
-            <button type="button" onClick="computeP()">Compute perimeter</button>
-            <button type="button" onClick="computeA()">Compute area</button>
-        </form>
-    </section>
-    <section>
-        <h2>Compute the area and perimeter of a circle</h2>
-        <form>
-            <label for="cicle-input">Type the circle radius</label>
-            <input type="number" id="circle-input" />
-            <button type="button" onClick="computeCP()">Compute perimeter</button>
-            <button type="button" onClick="computeCA()">Compute area</button>
-        </form>
-    </section>
-    <section>
-        <h2>Compute the area and perimeter of an isosceles triangle</h2>
-        <form>
-            <label for="trian1-input">Type the length of the first side of the triangle</label>
-            <input type="number" id="trian1-input" />
-            <label for="trian2-input">Type the length of the 2nd side of the triangle</label>
-            <input type="number" id="trian2-input" />
-            <label for="trianB-input">Type the base of your triangle</label>
-            <input type="number" id="trianB-input" />
-            <button type="button" onClick="computeTP()">Compute perimeter</button>
-            <button type="button" onClick="computeTA()">Compute area</button>
-        </form>
-    </section>
+    <div class="main-container">
+        <section class="square-area">
+            <h2>Compute the area and perimeter of a square</h2>
+            <form>
+                <label for="square-input">Type the lenght of each side of yoir square</label>
+                <input type="number" id="square-input" />
+                <button type="button" onClick="computeP()">Compute perimeter</button>
+                <button type="button" onClick="computeA()">Compute area</button>
+            </form>
+            <p id="square-perim-result"></p>
+            <p id="square-area-result"></p>
+            <canvas id="canvas1"> </canvas>
+        </section>
+        <section class="cicle-area">
+            <h2>Compute the area and perimeter of a circle</h2>
+            <form>
+                <label for="cicle-input">Type the circle radius</label>
+                <input type="number" id="circle-input" />
+                <button type="button" onClick="computeCP()">Compute perimeter</button>
+                <button type="button" onClick="computeCA()">Compute area</button>
+            </form>
+            <p id="circle-perim-result"></p>
+            <p id="circle-area-result"></p>
+            <canvas id="canvas2" width="150" height="150"> </canvas>
+        </section>
+        <section class="triangle-area">
+            <h2>Compute the area and perimeter of an isosceles triangle</h2>
+            <form>
+                <label for="trian1-input">Type the length of the first side of the triangle</label>
+                <input type="number" id="trian1-input" />
+                <label for="trian2-input">Type the length of the 2nd side of the triangle</label>
+                <input type="number" id="trian2-input" />
+                <label for="trianB-input">Type the base of your triangle</label>
+                <input type="number" id="trianB-input" />
+                <button type="button" onClick="computeTP()">Compute perimeter</button>
+                <p id="height-box"></p>
+                <button type="button" onClick="computeTA()">Compute area</button>
+            </form>
+            <p id="triangle-perim-result"></p>
+            <p id="triangle-area-result"></p>
+            <canvas id="canvas3" width="150" height="150"> </canvas>
+        </section>
+    </div>
+    
     <script src="./figuras.js"></script>
 </body>
 </html>

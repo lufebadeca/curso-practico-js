@@ -1,0 +1,53 @@
+:root{
+    --lg: 18px;
+    --sm: 14px;
+    --md: 16px;
+}
+body{
+    background: rgba(219, 219, 219, 0.905);
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70%;
+    font-family: 'Quicksand', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.main-container{
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 5%;
+}
+section > form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    padding: 8px;
+}
+input, button{
+    width: 70%;
+    margin: 4px 0 4px 0;
+    box-sizing: border-box;
+}
+button:hover{
+    font-weight: bold;
+    border: 3px solid black;
+}
+#height-box{
+    border: 1px solid gray;
+    height: 22px;
+    width: 70%;
+}
+#triangle-result{
+    text-align: center;
+}
+canvas{
+    width: 20vw;
+    height: 20vw;
+    background: white;
+    border: 1px solid black;
+}
