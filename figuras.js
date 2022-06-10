@@ -140,7 +140,7 @@ function computeTA(){
             drawTriangle(hipo, base);
         }
         else{
-            alert("Error, unable to compute height since the length of side 1 and 2 are different");
+            alert("Error, no isoscel;es triangle, unable to compute since the lengths 1 and 2 are different");
         }
     }
 }
