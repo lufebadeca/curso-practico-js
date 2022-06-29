@@ -48,6 +48,7 @@ function drawLine(lienzo, color, xi, yi, xf, yf)  //PASOS ORIGINALES PARA CREAR 
   lienzo.closePath();
 }
 function drawSquare(){
+    lienzo1.clearRect(0, 0, 150,150);
     ancho = area1.width;
     alto = area1.height;
     drawLine(lienzo1, "blue", ancho/6, alto/6, ancho*5/6, alto/6);
@@ -56,15 +57,26 @@ function drawSquare(){
     drawLine(lienzo1, "blue", ancho/6, alto*5/6, ancho/6, alto/6);
 }
 function drawTriangle(height, base){
+    lienzo3.clearRect(0, 0, 150, 150);
     var ancho = Number(area3.width);
     var alto = Number(area3.height);
-    alert(ancho + " " + base +" "+ alto +" " + height);
+    //now, to scale, the base and heights of the triangle are converted for a maximum of 100px.
+    if (height>base){
+        const convers = 100/height;
+        height=100;
+        base = base*convers;    //here, the smaller dimension gets converted into a proportionally factor
+    }else{
+        const convers = 100/base;
+        base=100;
+        height = height*convers;
+    }
     drawLine(lienzo3, "green", ancho/2, (alto-height)/2, (ancho+Number(base))/2, (alto+Number(height))/2);
-    drawLine(lienzo3, "red", (ancho+Number(base))/2, (alto+Number(height))/2, (ancho-base)/2, (alto+Number(height))/2);
-    drawLine(lienzo3, "blue", (ancho-base)/2, (alto+height)/2, ancho/2, (alto-height)/2);
+    drawLine(lienzo3, "green", (ancho+Number(base))/2, (alto+Number(height))/2, (ancho-base)/2, (alto+Number(height))/2);
+    drawLine(lienzo3, "green", (ancho-base)/2, (alto+height)/2, ancho/2, (alto-height)/2);
 }
 
 function drawCircle(color){
+    lienzo2.clearRect(0, 0, 150,150);
     ancho = area2.width;
     alto = area2.height;
     lienzo2.beginPath();
@@ -79,7 +91,7 @@ function computeP(){
     const inputValue = inputSquare.value;
     var perim = perimetroCuadrado(inputValue);
     const squarePerimField = document.getElementById("square-perim-result");
-    squarePerimField.innerText = `Perimeter = ${perim} cm`;
+    squarePerimField.innerText = `Perimeter = ${perim.toFixed(2)} cm`;
 }
 
 function computeA(){
@@ -87,7 +99,7 @@ function computeA(){
     const inputValue = inputSquare.value;
     var area = areaCuadrado(inputValue);
     const squareAreaField = document.getElementById("square-area-result");
-    squareAreaField.innerText = `Area = ${area} cm2`;
+    squareAreaField.innerText = `Area = ${area.toFixed(2)} cm2`;
     drawSquare();
 }
 function computeCP(){
@@ -95,7 +107,7 @@ function computeCP(){
     const radValue = inputRad.value;
     var perim = perimetroCirculo(radValue*2);
     const circlePerimField = document.getElementById("circle-perim-result");
-    circlePerimField.innerText = `Perim = ${perim} cm`;
+    circlePerimField.innerText = `Perim = ${perim.toFixed(2)} cm`;
 }
 
 function computeCA(){
@@ -103,7 +115,7 @@ function computeCA(){
     const radValue = inputRad.value;
     var area = areaCirculo(radValue);
     const circleAreaField = document.getElementById("circle-area-result");
-    circleAreaField.innerText = `Area = ${area} cm2`;
+    circleAreaField.innerText = `Area = ${area.toFixed(2)} cm2`;
     drawCircle("red");
 }
 function computeTP(){
@@ -115,32 +127,40 @@ function computeTP(){
     const base = Number(inputTrian3.value);
     var perim = perimetroTriangulo(lado1, lado2, base);
     const triangPerimField = document.getElementById("triangle-perim-result"); 
-    triangPerimField.innerText = perim + " cm";
+    triangPerimField.innerText = "Perim: " + perim.toFixed(2) + " cm";
 }
 
-function computeTA(){
+
+function computeTA(control){
     const inputTrian1 = document.getElementById("trian1-input");
-    const lado1 = inputTrian1.value;
+    const lado1 = Number(inputTrian1.value);
     const inputTrian2 = document.getElementById("trian2-input");
-    const lado2 = inputTrian2.value;
+    const lado2 = Number(inputTrian2.value);
     const inputTrian3 = document.getElementById("trianB-input");
     const base = inputTrian3.value;
-    alert(lado1 + ", " + lado2 + ", "+ base);
     if (lado1==0 || lado2==0 || base==0){
         alert("Error, all triangle sides must be indicated");
     }
     else{
         if (lado1 == lado2){
-            var hipo = Math.sqrt(Math.pow(lado1,2)-(Math.pow(base,2)/4));
-            const heightField = document.getElementById("height-box");
-            heightField.innerText = hipo;
-            var area = areaTriangulo(base, hipo);
-            const triangAreaField = document.getElementById("triangle-area-result");
-            triangAreaField.innerText = area + " cm2";
-            drawTriangle(hipo, base);
+            if (base/2>=lado1){
+                alert("Sorry, this triangle is not possible, the base is too large in comparisson with the sides.");
+                inputTrian3.innerText ="";
+            }
+            else{
+                var hipo = Math.sqrt(Math.pow(lado1,2)-(Math.pow(base,2)/4));
+                const heightField = document.getElementById("height-box");
+                heightField.innerText = "Height: " + hipo.toFixed(2) + "cm";
+                if(control==2){
+                    var area = areaTriangulo(base, hipo);
+                    const triangAreaField = document.getElementById("triangle-area-result");
+                    triangAreaField.innerText = "Area: " + area.toFixed(2) + " cm2";
+                    drawTriangle(hipo, base);
+                    }
+                }
         }
         else{
-            alert("Error, no isoscel;es triangle, unable to compute since the lengths 1 and 2 are different");
+            alert("Error, no isosceles triangle. Unable to compute since sides 1 and 2 are different");
         }
     }
 }

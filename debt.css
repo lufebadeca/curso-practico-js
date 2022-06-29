@@ -1,0 +1,39 @@
+:root{
+    --backcolor: rgb(188, 214, 242);
+}
+.module-body{
+    display:flex;
+    flex-direction: column;
+    background: var(--backcolor);
+    align-items: center;
+    justify-content: center;
+}
+.inner-box{
+    display: grid;
+    grid-template-columns: 35% 15% 35% 15%;
+    grid-template-rows: auto auto auto auto;
+    grid-column-start: 2;
+    width: auto;
+    gap: 5px;
+    border: 1px solid white;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+#blank{
+    grid-area: 2/3/2/5;
+}
+input{
+    height: 50%;
+}
+table{
+    margin-top: 40px;
+    background: rgb(207, 219, 253);
+}
+tr:nth-child(1){
+    font-weight: bold;
+    background: rgb(185, 209, 248);
+}
+td{
+    width: 140px;
+}

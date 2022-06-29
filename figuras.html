@@ -6,11 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Geometric figures</title>
     <link rel="stylesheet" href="figures.css">
+    <link rel="stylesheet" href="navStyle.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
+    <nav>
+        <div class="navbar-left">
+            <ul>
+                <a href="./"><img class="yard-sale" src="./platzi.png" alt="platzi-logo"></a>
+                <li><a href="figuras.html">Geometric Figures</a></li>
+                <li><a href="average.html">Averages</a></li>
+                <li><a href="salaries.html">Salary analysis</a></li>
+                <li><a href="debt.html">Debt simulator</a></li>
+            </ul>
+        </div>
+
+        <div class="navbar-right">
+            <ul>
+                <li>lufebadeca@gmail.com</li>
+                <li class="navbar-shopping-cart"></div></li>
+            </ul>
+        </div>
+    </nav>
     <h1>Geometric figures</h1>
     <p>This is the first workshop of Javascript Practic course</p>
     <div class="main-container">
@@ -22,8 +41,8 @@
                 <button type="button" onClick="computeP()">Compute perimeter</button>
                 <button type="button" onClick="computeA()">Compute area</button>
             </form>
-            <p id="square-perim-result"></p>
-            <p id="square-area-result"></p>
+            <p id="square-perim-result" class="p-result"></p>
+            <p id="square-area-result" class="p-result"></p>
             <canvas id="canvas1"> </canvas>
         </section>
         <section class="cicle-area">
@@ -34,8 +53,8 @@
                 <button type="button" onClick="computeCP()">Compute perimeter</button>
                 <button type="button" onClick="computeCA()">Compute area</button>
             </form>
-            <p id="circle-perim-result"></p>
-            <p id="circle-area-result"></p>
+            <p id="circle-perim-result" class="p-result"></p>
+            <p id="circle-area-result" class="p-result"></p>
             <canvas id="canvas2" width="150" height="150"> </canvas>
         </section>
         <section class="triangle-area">
@@ -46,13 +65,13 @@
                 <label for="trian2-input">Type the length of the 2nd side of the triangle</label>
                 <input type="number" id="trian2-input" />
                 <label for="trianB-input">Type the base of your triangle</label>
-                <input type="number" id="trianB-input" />
-                <button type="button" onClick="computeTP()">Compute perimeter</button>
-                <p id="height-box"></p>
-                <button type="button" onClick="computeTA()">Compute area</button>
+                <input type="number" id="trianB-input" onChange="computeTA()"/>
+                <button type="button" onClick="computeTP(0)">Compute perimeter</button>
+                <p id="height-box" height="21px"></p>
+                <button type="button" onClick="computeTA(2)">Compute area</button>
             </form>
-            <p id="triangle-perim-result"></p>
-            <p id="triangle-area-result"></p>
+            <p id="triangle-perim-result" class="p-result"></p>
+            <p id="triangle-area-result" class="p-result"></p>
             <canvas id="canvas3" width="150" height="150"> </canvas>
         </section>
     </div>

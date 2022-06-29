@@ -2,31 +2,43 @@
     --lg: 18px;
     --sm: 14px;
     --md: 16px;
+    --backcolor: rgb(188, 214, 242);
 }
 body{
     background: rgba(219, 219, 219, 0.905);
     color: black;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 70%;
     font-family: 'Quicksand', sans-serif;
     font-family: 'Source Sans Pro', sans-serif;
+    height: auto;
+}
+h1{
+    text-align: center;
+    margin: 40px 50px;
 }
 .main-container{
     display: grid;
+    width: 70vw;
     grid-template-columns: repeat(3, auto);
     gap: 5%;
+    margin: auto auto;
+    align-items: start;
 }
 section > form{
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
     width: 100%;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
     padding: 8px;
+}
+section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    border: 2px solid darkcyan;
+    background: var(--backcolor);
 }
 input, button{
     width: 70%;
@@ -38,16 +50,31 @@ button:hover{
     border: 3px solid black;
 }
 #height-box{
-    border: 1px solid gray;
-    height: 22px;
-    width: 70%;
+    border: 1px solid rgb(230, 230, 230);
+    color: gray;
+    height: 20px;
+    width: 50%;
 }
 #triangle-result{
     text-align: center;
 }
 canvas{
-    width: 20vw;
-    height: 20vw;
+    width: 14vw;
+    height: 14vw;
     background: white;
-    border: 1px solid black;
+    border: 1px solid darkcyan;
+    margin: 16px auto 20% auto;
+}
+h2, p{
+    padding: 4px;
+    text-align: center;
+}
+.p-result{
+    box-sizing: border-box;
+    width:80%;
+    margin: 4px auto 4px auto ;
+    height: 30px;
+    border: 1px solid darkcyan;
+    text-align: center;
+    justify-items: center;
 }

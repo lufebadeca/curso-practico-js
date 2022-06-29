@@ -1,0 +1,55 @@
+:root{
+    --backcolor: rgb(188, 214, 242);
+}
+section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+span{
+    width: 100%;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+}
+.input-span label{
+    display: inline-block;
+    margin: 5px auto 5px auto;
+}
+span > input{
+    display:inline-block;
+    width: 45px;
+    text-align: center;
+}
+.output-items{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: left;
+}
+button{
+    margin: 25px;
+}
+.p-result{
+    border: 1px solid black;
+    display: inline-block;
+    width: 60px;
+    height: 25px;
+    text-align: center;
+}
+.content-container{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    align-items: center;
+    justify-content: start;
+    background: var(--backcolor);
+    padding: 20px 60px 100px 60px;
+}
