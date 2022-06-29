@@ -23,6 +23,14 @@ h1{
     margin: auto auto;
     align-items: start;
 }
+section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    border: 2px solid darkcyan;
+    background: var(--backcolor);
+}
 section > form{
     display: flex;
     flex-direction: column;
@@ -31,14 +39,6 @@ section > form{
     justify-content: center;
     align-items: center;
     padding: 8px;
-}
-section{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    border: 2px solid darkcyan;
-    background: var(--backcolor);
 }
 input, button{
     width: 70%;

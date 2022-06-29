@@ -16,6 +16,9 @@ section{
     align-items: center;
     justify-content: center;
 }
+p{
+    width: 60%;
+}
 h1{font-size: 35px;}
 h2{align-self: center;}
 .content-container{
