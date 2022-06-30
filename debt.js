@@ -30,108 +30,52 @@ function genera_tabla() {
     var body = document.getElementsByTagName("body")[0];
     var body2 = document.getElementsByTagName("section")[0];
   
+    function fillRow(first, second, third, fourth, fifth, row){
+      const rowList = [first, second, third, fourth, fifth];
+
+      for (let index = 0; index < rowList.length; index++) { // Crea un elemento <td> y un nodo de texto, haz que el nodo
+        // de texto sea el contenido de <td>, ubica el elemento <td> al final de la fila (row)     
+        var cell = document.createElement("td");
+        var cellText = document.createTextNode(rowList[index]);
+        cell .appendChild(cellText);
+        row.appendChild(cell);
+      }
+    }
+
     // Crea un elemento <table> y un elemento <tbody>
     var tabla   = document.createElement("table");
     var tblBody = document.createElement("tbody");
-    
-    var headersRow = document.createElement("tr");  // creates the first row
-      var header1 = document.createElement("td");
-      var textHeader1 = document.createTextNode("Instalment");
-      header1 .appendChild(textHeader1);
-      headersRow.appendChild(header1);
+    var headersRow  = document.createElement("tr");  // creates the first row
+    fillRow("installment", "Installment amount", "interest amount", "Deposit", "Balance", headersRow);
 
-      var header2 = document.createElement("td");
-      var textHeader2 = document.createTextNode("Instalment amount");
-      header2.appendChild(textHeader2);
-      headersRow.appendChild(header2);
-
-      var header3 = document.createElement("td");
-      var textHeader3 = document.createTextNode("Interest amount");
-      header3.appendChild(textHeader3);
-      headersRow.appendChild(header3);
-
-      var header4 = document.createElement("td");
-      var textHeader4 = document.createTextNode("Deposit");
-      header4.appendChild(textHeader4);
-      headersRow.appendChild(header4);
-
-      var header5 = document.createElement("td");
-      var textHeader5 = document.createTextNode("balance");
-      header5.appendChild(textHeader5);
-      headersRow.appendChild(header5);
-
-      // agrega la row al final de la tabla (al final del elemento tblbody)
-      tblBody.appendChild(headersRow);
-      alert(`InterestME: ${interestME} x balance: ${balance} = ${interestME * balance}`);
+    // agrega la row al final de la tabla (al final del elemento tblbody)
+    tblBody.appendChild(headersRow);
     
       // Crea las celdas 
     for (var i = 0; i <= rowsNumber; i++) {
 
         var row = document.createElement("tr");  //creates the first data row
 
-        // Crea un elemento <td> y un nodo de texto, haz que el nodo de
-        // texto sea el contenido de <td>, ubica el elemento <td> al final
-        // de la row de la tabla
-        var celda0 = document.createElement("td");
-        var textoCelda0 = document.createTextNode(`Installment ${i}`);
-        celda0.appendChild(textoCelda0);
-        row.appendChild(celda0);
-
         if (i==0){
-          var celda1 = document.createElement("td");
-          var textoCelda1 = document.createTextNode("--"); //
-          celda1.appendChild(textoCelda1);
-          row.appendChild(celda1);
-
-          var celda2 = document.createElement("td");
-          var textoCelda2 = document.createTextNode("--"); //
-          celda2.appendChild(textoCelda2);
-          row.appendChild(celda2);
-
-          var celda3 = document.createElement("td");
-          var textoCelda3 = document.createTextNode("--"); //installment-interestAmount
-          celda3.appendChild(textoCelda3);
-          row.appendChild(celda3);
-
-          var celda4 = document.createElement("td");
-          var textoCelda4 = document.createTextNode(balance.toFixed(2)); //balance-abono
-          celda4.appendChild(textoCelda4);
-          row.appendChild(celda4);
-
+          const bal = new Intl.NumberFormat('es-MX').format(balance.toFixed(2));
+          fillRow(`Installment ${i}`, "--","--","--", bal, row);
         }
         else{
           interestAmount = interestME * balance;
           payment = installment-interestAmount;
           balance = balance-payment;
           
-          // Crea las hileras de la tabla
-          var celda1 = document.createElement("td");
-          var textoCelda1 = document.createTextNode(installment.toFixed(2)); //
-          celda1.appendChild(textoCelda1);
-          row.appendChild(celda1);
+          const c1 = new Intl.NumberFormat('es-MX').format(installment.toFixed(2));
+          const c2 = new Intl.NumberFormat('es-MX').format(interestAmount.toFixed(2));
+          const c3 = new Intl.NumberFormat('es-MX').format(payment.toFixed(2));
+          const c4 = new Intl.NumberFormat('es-MX').format(balance.toFixed(2));
 
-          var celda2 = document.createElement("td");
-          var textoCelda2 = document.createTextNode(interestAmount.toFixed(2)); //
-          celda2.appendChild(textoCelda2);
-          row.appendChild(celda2);
-
-          var celda3 = document.createElement("td");
-          var textoCelda3 = document.createTextNode(payment.toFixed(2)); //installment-interestAmount
-          celda3.appendChild(textoCelda3);
-          row.appendChild(celda3);
-
-          var celda4 = document.createElement("td");
-          var textoCelda4 = document.createTextNode(balance.toFixed(2)); //balance-abono
-          celda4.appendChild(textoCelda4);
-          row.appendChild(celda4);
+          fillRow(`Installment ${i}`,c1,c2,c3,c4, row);
         }
-
-  
       // agrega la row al final de la tabla (al final del elemento tblbody)
       tblBody.appendChild(row);
       
     }
-  
     // posiciona el <tbody> debajo del elemento <table>
     tabla.appendChild(tblBody);
     // appends <table> into <body>

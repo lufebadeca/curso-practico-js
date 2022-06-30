@@ -4,7 +4,6 @@
 .module-body{
     display:flex;
     flex-direction: column;
-    background: var(--backcolor);
     align-items: center;
     justify-content: center;
 }
@@ -14,8 +13,9 @@
     grid-template-rows: auto auto auto auto;
     grid-column-start: 2;
     width: auto;
+    background: var(--backcolor);
     gap: 5px;
-    border: 1px solid white;
+    border: 1px solid rgb(107, 164, 176);
     align-items: center;
     justify-content: center;
     padding: 20px;
@@ -28,12 +28,25 @@ input{
 }
 table{
     margin-top: 40px;
-    background: rgb(207, 219, 253);
+    background: rgb(218, 254, 253);
+    text-align: right;
 }
 tr:nth-child(1){
     font-weight: bold;
-    background: rgb(185, 209, 248);
+    background: rgb(107, 164, 176);
 }
 td{
-    width: 140px;
+    width: 125px;
+}
+
+td:nth-child(1){text-align: left;}
+tr:nth-child(1){text-align: center; }
+tr:nth-child(even){
+    background: white;
+}
+#tableButton{
+    width: 100px;
+    height: 35px;
+    margin-top: 20px;
+    border-radius: 4px;
 }

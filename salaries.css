@@ -45,8 +45,9 @@ input, button{
     margin: 4px 0 4px 0;
     box-sizing: border-box;
 }
-.fill-button{
+button{
     align-self: center;
+    border-radius: 4px;
 }
 button:hover{
     font-weight: bold;
@@ -79,7 +80,7 @@ section > span{
     align-items: center;
 }
 .p-result{
-    border: 2px solid darkcyan;
+    border: 2px solid rgb(218, 254, 253);
     width: 100px;
     height: 25px;
     display: inline-block;
