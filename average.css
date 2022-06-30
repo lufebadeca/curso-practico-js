@@ -36,6 +36,13 @@ span > input{
 }
 button{
     margin: 25px;
+    border-radius: 4px;
+    width: 140px;
+    height: 30px
+}
+button:hover{
+    font-weight: bold;
+    border: 3px solid black;
 }
 .p-result{
     border: 1px solid black;

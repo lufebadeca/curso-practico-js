@@ -40,7 +40,7 @@ section > form{
     align-items: center;
     padding: 8px;
 }
-input, button{
+input{
     width: 70%;
     margin: 4px 0 4px 0;
     box-sizing: border-box;
@@ -48,6 +48,10 @@ input, button{
 button:hover{
     font-weight: bold;
     border: 3px solid black;
+}
+button{
+    border-radius: 4px;
+    margin: 5px; 
 }
 #height-box{
     border: 1px solid rgb(230, 230, 230);
