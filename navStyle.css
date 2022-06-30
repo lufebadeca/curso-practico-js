@@ -71,9 +71,28 @@ nav .navbar-left img {
     body{width: 100vw;}
     section img{width: 100vw;}
     .menu{
-        display: block;
+        display: none;
     }
-    .navbar-left ul li {
-    display: none;
+    .navbar-left ul {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    align-items: start;
+    }
+    nav .yard-sale {
+        width: 20px;
+        margin: 4px;
+        padding: 2px;
+    }
+    nav .navbar-left li:nth-child(2){
+        margin-left: 0;
+    }
+    nav ul a{
+        text-decoration: none;
+        color: var(--very-light-pink);
+        border: 1px solid white;
+        border-radius: 5px;
+        padding: 0px;
     }
 }
