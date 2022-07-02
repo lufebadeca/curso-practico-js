@@ -52,9 +52,9 @@ tr:nth-child(even){
     margin-top: 20px;
     border-radius: 4px;
     cursor: pointer;
+    background:rgb(234, 234, 234);
 }
-.table-button:hover{
-    background: darkgray;
-    border: 2px;
-    
+#table-button:hover{
+    font-weight: bold;
+    background: var(--text-input-field);
 }
