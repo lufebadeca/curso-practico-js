@@ -29,18 +29,17 @@ input{
 table{
     margin-top: 40px;
     margin-bottom: 100px;
-    background: rgb(218, 254, 253);
+    background: rgb(201, 220, 241);
     text-align: right;
 }
 tr:nth-child(1), tr:nth-last-child(1){
     font-weight: bold;
-    background: rgb(107, 164, 176);
-    font-size: large;
+    background: rgb(68, 112, 142);
+    color: white;
 }
 td{
     width: 125px;
 }
-
 td:nth-child(1){text-align: left;}
 tr:nth-child(1){text-align: center; }
 tr:nth-child(even){
