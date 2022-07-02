@@ -28,12 +28,14 @@ input{
 }
 table{
     margin-top: 40px;
+    margin-bottom: 100px;
     background: rgb(218, 254, 253);
     text-align: right;
 }
-tr:nth-child(1){
+tr:nth-child(1), tr:nth-last-child(1){
     font-weight: bold;
     background: rgb(107, 164, 176);
+    font-size: large;
 }
 td{
     width: 125px;
@@ -44,9 +46,15 @@ tr:nth-child(1){text-align: center; }
 tr:nth-child(even){
     background: white;
 }
-#tableButton{
+#table-button{
     width: 100px;
     height: 35px;
     margin-top: 20px;
     border-radius: 4px;
+    cursor: pointer;
+}
+.table-button:hover{
+    background: darkgray;
+    border: 2px;
+    
 }
