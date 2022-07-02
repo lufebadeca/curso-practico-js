@@ -67,6 +67,13 @@ nav .navbar-left img {
     width: 30px;
     display: none;
 }
+button{
+    background:rgb(234, 234, 234);
+}
+button:hover{
+    font-weight: bold;
+    background: var(--text-input-field);
+}
 @media (max-width: 900px){
     body{width: 100vw;}
     section img{width: 100vw;}
