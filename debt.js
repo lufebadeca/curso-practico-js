@@ -20,14 +20,16 @@ function genera_tabla() {
   const fullAmount = fullAmountBox.value;
   const fundedPercBox = document.getElementById("funded-percentage");
   const fundedPerc = fundedPercBox.value;
+
   const loanAmount = fullAmount*fundedPerc/100;
+  const loanVal = new Intl.NumberFormat('es-MX').format(loanAmount.toFixed(2) );
   const loanAmountBox = document.getElementById("loan-amount");
-  loanAmountBox.value = loanAmount;
+  loanAmountBox.value = loanVal;
+
   const interestAEBox = document.getElementById("interest-rateAE");
   const interestAE = interestAEBox.value/100;
   const loanYearsBox = document.getElementById("years");
   const loanYears = loanYearsBox.value;
-
   const months = loanYears*12;
   const loanMonthsBox = document.getElementById("months");
   loanMonthsBox.value = months;
@@ -36,8 +38,9 @@ function genera_tabla() {
   const monthInterestBox = document.getElementById("interest-rateME");
   monthInterestBox.value = (interestME*100).toFixed(2);
   const installment = (loanAmount * interestME ) / (1-Math.pow(1+interestME,-months));
+  const installmentVal = new Intl.NumberFormat('es-MX').format(installment.toFixed(2));
   const installmentBox = document.getElementById("installment");
-  installmentBox.value = installment.toFixed(2);
+  installmentBox.value = installmentVal;
 
   const rowsNumber = months;
   var balance = loanAmount;
@@ -63,7 +66,7 @@ function genera_tabla() {
     var row = document.createElement("tr");  //creates the first data row
     if (i==0){
       const bal = new Intl.NumberFormat('es-MX').format(balance.toFixed(2));
-      fillRow(`Installment ${i}`, "--","--","--", bal, row);
+      fillRow(`Month ${i}`, "--","--","--", bal, row);
     }
     else{
       interestAmount = interestME * balance;
@@ -77,7 +80,7 @@ function genera_tabla() {
       const c3 = new Intl.NumberFormat('es-MX').format(deposit.toFixed(2));
       const c4 = new Intl.NumberFormat('es-MX').format(Math.abs(balance.toFixed(2)) );
 
-      fillRow(`Installment ${i}`,c1,c2,c3,c4, row);
+      fillRow(`Month ${i}`,c1,c2,c3,c4, row);
     }
   // agrega la row al final de la tabla (al final del elemento tblbody)
   tblBody.appendChild(row);
@@ -87,7 +90,7 @@ function genera_tabla() {
   const t3 = new Intl.NumberFormat('es-MX').format(totalDeposit.toFixed(2));
 
   var totalsRow = document.createElement("tr");  //creates the last/totals row
-  fillRow("Total:",t1,t2,t3,"--",totalsRow);
+  fillRow("Total:",t1,t2,t3,"0",totalsRow);
   tblBody.appendChild(totalsRow);
   
   // posiciona el <tbody> debajo del elemento <table>

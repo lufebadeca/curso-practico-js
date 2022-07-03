@@ -9,22 +9,33 @@
 }
 .inner-box{
     display: grid;
-    grid-template-columns: 35% 15% 35% 15%;
+    grid-template-columns: 28% 15% 23% 15%;
     grid-template-rows: auto auto auto auto;
     grid-column-start: 2;
     width: auto;
     background: var(--backcolor);
-    gap: 5px;
-    border: 1px solid rgb(107, 164, 176);
+    gap: 10px;
+    border: 3px solid rgb(107, 164, 176);
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 30px 0 20px 0;
 }
 #blank{
-    grid-area: 2/3/2/5;
+    grid-area: 1/3/1/5;
 }
 input{
     height: 50%;
+    margin: 5px;
+    text-align: end;
+}
+.installment-result{
+    grid-area: 5/1/5/5;
+    justify-self: center;
+    align-items: center;
+    margin: 25px 0 15px 0;
+    font-weight: bold;
+    display: grid;
+    grid-template-columns: 55% 35%;
 }
 table{
     margin-top: 40px;
@@ -52,6 +63,7 @@ tr:nth-child(even){
     border-radius: 4px;
     cursor: pointer;
     background:rgb(234, 234, 234);
+    text-align: center;
 }
 #table-button:hover{
     font-weight: bold;

@@ -78,16 +78,24 @@ function computeResults(){
     for (let index = 0; index < 20; index++) {
         var fieldBox = document.getElementById(`sal${index}`);    //taking advantage of the input names
         salaries.push(Number(fieldBox.value));
-        
     }
     sortedSalaries = salaries.sort(function(salA,salB){return salA-salB;});
     console.log(sortedSalaries);
     const avgResult = document.getElementById("average-result");
-    avgResult.innerText = computeAverage(sortedSalaries).toFixed(2);
+    var formattedAVG = Number(computeAverage(sortedSalaries).toFixed(2));
+    formattedAVG = new Intl.NumberFormat('es-MX').format(formattedAVG);
+    avgResult.innerText = formattedAVG;
+
     const medianResult = document.getElementById("median-result");
-    medianResult.innerText = computeMedian(sortedSalaries).toFixed(2);
+    var formattedMedian = Number(computeMedian(sortedSalaries).toFixed(2));
+    formattedMedian = new Intl.NumberFormat('es-MX').format(formattedMedian);
+    medianResult.innerText = formattedMedian;
+
     const modeResult1 = document.getElementById("mode-result1");
-    modeResult1.innerText = computeMode(sortedSalaries)[0];
+    var formattedMode = Number(computeMode(sortedSalaries)[0]);
+    formattedMode = new Intl.NumberFormat('es-MX').format(formattedMode.toFixed(2));
+    modeResult1.innerText = formattedMode;
+
     const modeResult2 = document.getElementById("mode-result2");
     modeResult2.innerText = computeMode(sortedSalaries)[1];
     const topResult = document.getElementById("top-result");

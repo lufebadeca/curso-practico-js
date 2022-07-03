@@ -34,24 +34,24 @@
     <p>This is the first workshop of Javascript Practic course</p>
     <div class="main-container">
         <section class="square-area">
-            <h2>Compute the area and perimeter of a square</h2>
+            <h2>Compute the area and perimeter of a rectangle</h2>
             <form>
-                <label for="square-input">Type the lenght of each side of your square</label>
-                <input type="number" id="square-input" />
-                <button type="button" onClick="computeP()">Compute perimeter</button>
-                <button type="button" onClick="computeA()">Compute area</button>
+                <label for="square-input1">Type the height of your rectangle:</label>
+                <input type="number" id="square-input1" />
+                <label for="square-input2">Type the base of your rectangle:</label>
+                <input type="number" id="square-input2" />
+                <button type="button" onClick="computeSPA()">Compute perimeter and area</button>
             </form>
             <p id="square-perim-result" class="p-result"></p>
             <p id="square-area-result" class="p-result"></p>
-            <canvas id="canvas1"> </canvas>
+            <canvas id="canvas1" width="150" height="150"> </canvas>
         </section>
         <section class="cicle-area">
             <h2>Compute the area and perimeter of a circle</h2>
             <form>
-                <label for="cicle-input">Type the circle radius</label>
+                <label for="cicle-input">Type the circle diameter:</label>
                 <input type="number" id="circle-input" />
-                <button type="button" onClick="computeCP()">Compute perimeter</button>
-                <button type="button" onClick="computeCA()">Compute area</button>
+                <button type="button" onClick="computeCPA()">Compute perimeter and area</button>
             </form>
             <p id="circle-perim-result" class="p-result"></p>
             <p id="circle-area-result" class="p-result"></p>
@@ -60,15 +60,12 @@
         <section class="triangle-area">
             <h2>Compute the area and perimeter of an isosceles triangle</h2>
             <form>
-                <label for="trian1-input">Type the length of the first side of the triangle</label>
+                <label for="trian1-input">Type the length of the sides 1 and 2 for the triangle:</label>
                 <input type="number" id="trian1-input" />
-                <label for="trian2-input">Type the length of the 2nd side of the triangle</label>
-                <input type="number" id="trian2-input" />
-                <label for="trianB-input">Type the base of your triangle</label>
-                <input type="number" id="trianB-input" onChange="computeTA()"/>
-                <button type="button" onClick="computeTP(0)">Compute perimeter</button>
+                <label for="trianB-input">Type the base of your triangle:</label>
+                <input type="number" id="trianB-input" />
+                <button type="button" onClick="computeTPA(0)">Compute perimeter and area</button>
                 <p id="height-box" height="21px"></p>
-                <button type="button" onClick="computeTA(2)">Compute area</button>
             </form>
             <p id="triangle-perim-result" class="p-result"></p>
             <p id="triangle-area-result" class="p-result"></p>

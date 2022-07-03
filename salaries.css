@@ -19,7 +19,9 @@ section{
 p{
     width: 60%;
 }
-h1{font-size: 35px;}
+h1{
+    font-size: 35px;
+    margin: 20px;}
 h2{align-self: center;}
 .content-container{
     display: flex;
@@ -27,7 +29,7 @@ h2{align-self: center;}
     justify-content: center;
     align-items: center;
     align-items: flex-start;
-    border: 2px solid darkcyan;
+    border: 2px solid rgb(107, 164, 176);
     background: var(--backcolor);
 }
 section > form{
@@ -48,7 +50,7 @@ input, button{
 button{
     align-self: center;
     border-radius: 4px;
-    cursor: pointer; 
+    cursor: pointer;
 }
 .list1{
     display: inline-block;
@@ -72,12 +74,13 @@ section > span{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    border: 2px solid rgb(115, 120, 120);
+    border: 2px solid rgb(107, 164, 176);
     align-self: center;
     align-items: center;
 }
 .p-result{
-    border: 2px solid rgb(218, 254, 253);
+    border: 1px solid rgb(107, 164, 176);
+    background: rgb(229, 233, 235);
     width: 100px;
     height: 25px;
     display: inline-block;
