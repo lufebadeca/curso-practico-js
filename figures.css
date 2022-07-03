@@ -28,7 +28,7 @@ section{
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    border: 2px solid darkcyan;
+    border: 2px solid rgb(107, 164, 176);
     background: var(--backcolor);
 }
 section > form{
@@ -47,7 +47,7 @@ input{
 }
 button{
     border-radius: 4px;
-    margin: 5px; 
+    margin: 5px;
 }
 #height-box{
     border: 1px solid rgb(230, 230, 230);

@@ -35,28 +35,20 @@
         <p>This module allows you to compute your final grades, through a weighted grade system of 3 grading periods.</p>
         <section class="content-container">
             <h2>Enter your grades to proceed</h2>
-            <form>
-                <span class="input-span">
-                    <label for="grade1">Grade 1</label> <input type="number" id="grade1">
-                    <label for="weight1">Weight of grade 1</label> <input type="number" id="weight1" value="0.3">
-                </span>
-                <span class="input-span"> 
-                    <label for="grade2">Grade 2</label> <input type="number" id="grade2">
-                    <label for="weight2">Weight of grade 2</label><input type="number" id="weight2" value="0.4">
-                </span>
-                <span class="input-span">
-                    <label for="grade3">Grade 3</label> <input type="number" id="grade3">
-                    <label for="weight3">Weight of grade 3</label> <input type="number" id="weight3" value="0.3">
-                </span>
-            </form>
+            <div class="grades-inputs">
+                    <label for="grade1">Grade 1: </label> <input type="number" id="grade1">
+                    <label for="weight1">Percentage (%): </label> <input type="number" id="weight1" value="30">
+                    <label for="grade2">Grade 2: </label> <input type="number" id="grade2">
+                    <label for="weight2">Percentage (%): </label><input type="number" id="weight2" value="40">
+                    <label for="grade3">Grade 3: </label> <input type="number" id="grade3">
+                    <label for="weight3">Percentage (%): </label> <input type="number" id="weight3" value="30">
+            </div>
             <button onClick="computeGrades()" class="compute-button">Compute grades</button>
             <div class="output-items">
-                <span class="output-span"><label>Average:</label><p id="average-result" class="p-result"></p></span>                 
-                <span class="output-span"><label>Weighted average:</label> <p id="weighted-result" class="p-result"></p></span>
-                <span class="output-span">
-                    <label>Highest:</label> <p id="highest-result" class="p-result mode-result"></p>
-                    <label>Period:</label> <p id="period-result" class="p-result mode-result"></p>
-                </span>
+                <label>Weighted average:</label> <p id="weighted-result" class="p-result"></p>
+                <label>Regular average:</label><p id="average-result" class="p-result"></p>            
+                <label>Highest grade:</label> <p id="highest-result" class="p-result mode-result"></p>
+                <label>Best period:</label> <p id="period-result" class="p-result mode-result"></p>
             </div>
 
         </section>

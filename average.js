@@ -132,32 +132,55 @@ function computeGrades(){
     const grade3 = Number(gr3.value);
 
     const wg1 = document.getElementById("weight1");
-    const weight1 = Number(wg1.value);
+    const weight1 = Number(wg1.value/100);
     const wg2 = document.getElementById("weight2");
-    const weight2 = Number(wg2.value);
+    const weight2 = Number(wg2.value/100);
     const wg3 = document.getElementById("weight3");
-    const weight3 = Number(wg3.value);
+    const weight3 = Number(wg3.value/100);
+    if( grade1==0|| grade2==0 || grade3==0|| weight1==0 || weight2==0 || weight3==0){
+        alert("Error, you must fill in all fields to continue");
+    }
+    else{
+        if(weight1+weight2+weight3!==1){
+            alert("Error, the sum of the grade percentages must be 100%");
+        }
+        else{
+            if(grade1>5 || grade1<0 || grade2>5 || grade2<0 || grade3>5 || grade3<0 || weight1<0 || weight2>5 || weight3<0){
+                alert("Error, only possitive values and grades between 0-5 are allowed");
+            }
+            else{
+                const fullGrades = [{subject: "X", grade: grade1, weight: weight1},
+                {subject: "X", grade: grade2, weight: weight2},
+                {subject: "X", grade: grade3, weight: weight3}  ];
+    
+                const final = calcularDefinitiva(fullGrades);
+                const grades = fullGrades.map(function(elem){return elem.grade});
+                const averageSum = grades.reduce(function(accum=0,next){return accum+next;});
+                const average = averageSum/fullGrades.length;
+    
+                const resultAvg = document.getElementById("average-result");
+                resultAvg.innerText = average.toFixed(2);
+                const resultWeig = document.getElementById("weighted-result");
+                resultWeig.innerText = final.toFixed(2);
+    
+                const periods = fullGrades.map(function(elem, i){
+                return {period: i+1, grade: elem.grade};
+                });
+    
+                const orderedGrades = fullGrades.sort(function(elemA, elemB){return elemB.grade-elemA.grade;});
+                const highestVal = orderedGrades[0].grade;
+    
+                const highest = document.getElementById("highest-result");
+                highest.innerText = highestVal;
+    
+                const sortedPeriods = periods.sort(function(elemA,elemB){return elemB.grade-elemA.grade;});
+                bestPeriod = sortedPeriods[0].period;
+    
+                const bestP = document.getElementById("period-result");
+                bestP.innerText = bestPeriod;
+                }
+            }
 
-    const fullGrades = [{subject: "X", grade: grade1, weight: weight1},
-                    {subject: "X", grade: grade2, weight: weight2},
-                    {subject: "X", grade: grade3, weight: weight3}  ];
-
-    const final = calcularDefinitiva(fullGrades);
-    const grades = fullGrades.map(function(elem){return elem.grade});
-    const averageSum = grades.reduce(function(accum=0,next){return accum+next;});
-    const average = averageSum/fullGrades.length;
-
-    const resultAvg = document.getElementById("average-result");
-    resultAvg.innerText = average.toFixed(2);
-    const resultWeig = document.getElementById("weighted-result");
-    resultWeig.innerText = final;
-
-    const orderedGrades = fullGrades.sort(function(elemA, elemB){return elemA.grade-elemB.grade;});
-    const highestVal = orderedGrades[orderedGrades.length-1].grade;
-    console.log(highestVal);
-
-    const highest = document.getElementById("highest-result");
-    highest.innerText = highestVal;
-
+        }
 }
 

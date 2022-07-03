@@ -69,6 +69,7 @@ nav .navbar-left img {
 }
 button{
     background:rgb(234, 234, 234);
+    border: 1px solid black;
 }
 button:hover{
     font-weight: bold;
